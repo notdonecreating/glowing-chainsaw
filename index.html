@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sparkstage Inc.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-light: #3b82f6;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --bg: #ffffff;
+            --bg-alt: #f8fafc;
+            --border: #e2e8f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--bg);
+        }
+        
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        
+        a:hover {
+            opacity: 0.85;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--bg);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            padding: 16px 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 36px;
+        }
+        
+        nav ul li a {
+            font-weight: 500;
+            color: var(--text);
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            background-color: var(--bg-alt);
+        }
+        
+        .hero-content {
+            max-width: 650px;
+        }
+        
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: var(--text);
+        }
+        
+        .hero h1 span {
+            color: var(--primary);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: var(--text-light);
+            margin-bottom: 40px;
+        }
+        
+        /* Sections */
+        section {
+            padding: 100px 0;
+        }
+        
+        section:nth-child(even) {
+            background-color: var(--bg-alt);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            color: var(--text);
+        }
+        
+        /* About Section */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .about-content h3 {
+            font-size: 26px;
+            margin-bottom: 24px;
+            color: var(--text);
+        }
+        
+        .about-content p {
+            margin-bottom: 24px;
+            color: var(--text-light);
+            font-size: 17px;
+        }
+        
+        /* Products Section */
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            max-width: 650px;
+            margin: 0 auto;
+            border: 1px solid var(--border);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .product-title {
+            padding: 30px 32px 0 32px;
+        }
+        
+        .product-title h3 {
+            font-size: 24px;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+        
+        .product-content {
+            padding: 24px 32px 32px;
+        }
+        
+        .product-content p {
+            color: var(--text-light);
+            margin-bottom: 32px;
+            font-size: 17px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-light);
+            color: white;
+        }
+        
+        /* Contact Section */
+        .contact-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            max-width: 500px;
+            width: 100%;
+        }
+        
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px;
+            border-radius: 12px;
+            background: white;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+        }
+        
+        .contact-icon {
+            font-size: 22px;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+        
+        .contact-text {
+            font-size: 16px;
+            color: var(--text-light);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--text);
+            color: white;
+            padding: 24px 0;
+        }
+        
+        .copyright {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 15px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 16px;
+            }
+            
+            nav ul {
+                gap: 24px;
+                justify-content: center;
+            }
+            
+            .hero {
+                padding: 140px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            section {
+                padding: 70px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Sparkstage Inc.</div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Innovating <span>Social Technology</span></h1>
+                <p>At Sparkstage Inc., we create technology that enhances human connection and development.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <div class="about-content">
+                <h3>Empowering People Through Technology</h3>
+                <p>Sparkstage Inc. is a forward-thinking technology company dedicated to developing innovative solutions that help people connect, communicate, and thrive in their social environments.</p>
+                <p>Founded with the vision of bridging technology and human interaction, we create applications that empower individuals to develop and enhance their social skills in today's increasingly digital world.</p>
+                <p>Our flagship product, Yaptitude, is revolutionizing how people learn and practice social skills through an engaging, supportive mobile application experience.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title">Our Products</h2>
+            <div class="product-card">
+                <div class="product-title">
+                    <h3>Yaptitude</h3>
+                </div>
+                <div class="product-content">
+                    <p>An innovative iOS application designed to help users learn and practice essential social skills. Through interactive exercises, personalized feedback, and real-world scenarios, Yaptitude guides users toward more confident and effective communication.</p>
+                    <a href="https://yaptitude.com" class="btn btn-primary">Visit Yaptitude Website</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-text">
+                                hello@yaptitude.com
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-text">
+                                info@sparkstageinc.com
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <p>© 2025 Sparkstage Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
